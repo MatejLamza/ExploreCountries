@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="50dp"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/avatarUserImageView"
+        android:src="@drawable/avatar_placeholder"
+        android:layout_width="@dimen/circluarImage"
+        android:layout_height="@dimen/circluarImage"
+        android:layout_gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       tools:text="Gal Gadot"
+       android:textStyle="bold"
+       android:textSize="@dimen/BigFont"
+       android:layout_gravity="center"
+       app:layout_constraintTop_toBottomOf="@id/avatarUserImageView"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"/>
+
+
+</LinearLayout>

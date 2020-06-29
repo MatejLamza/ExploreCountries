@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="app_name">ExploreTheWorld</string>
+
+    <string name="drawer_close">CloseDrawer</string>
+    <string name="tag_content">content</string>
+    <string name="tag_menu">menu</string>
+    <string name="drawer_open">OpenDrawer</string>
+    <string name="countries_menu_option">Countries</string>
+    <string name="cities_menu_option">Cities</string>
+    <string name="settings_menu_option">Settings</string>
+
+    <string-array name="drawerMenuOptions">
+        <item>Countries</item>
+        <item>Cities</item>
+        <item>Settings</item>
+    </string-array>
+</resources>
