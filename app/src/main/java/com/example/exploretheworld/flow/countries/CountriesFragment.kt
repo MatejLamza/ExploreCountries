@@ -1,16 +1,17 @@
 package com.example.exploretheworld.flow.countries
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.exploretheworld.R
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
+import com.example.exploretheworld.R
+import com.example.exploretheworld.flow.countries.details.CountryDetailsFragmentArgs
 import com.example.exploretheworld.utils.extensions.withDivider
 import kotlinx.android.synthetic.main.fragment_countries.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CountriesFragment : Fragment() {
 
@@ -35,7 +36,11 @@ class CountriesFragment : Fragment() {
 
     private fun setupRecyclerView() {
         countriesAdapter.onCoutryClicked = { country ->
-            Log.d("aaa", "Country clicked: ${country.name}")
+            //Todo redirect to fragment country details
+            findNavController().navigate(
+                R.id.action_countriesFragment_to_countryDetailsFragment,
+                CountryDetailsFragmentArgs(country).toBundle()
+            )
         }
         countriesList.withDivider()
         countriesList.adapter = countriesAdapter
