@@ -12,13 +12,19 @@
         app:cardCornerRadius="28dp"
         app:layout_constraintHeight_default="percent"
         app:layout_constraintHeight_percent="0.3"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/mapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.card.MaterialCardView>
 
     <ImageView
         android:id="@+id/flagCountryDetails"
         android:layout_width="100dp"
         android:layout_height="@dimen/circluarImage"
-        android:layout_margin="25dp"
+        android:layout_margin="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mapContainer" />
 
@@ -38,6 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/flagCountryDetails"
         tools:text="Population: 100 million" />
@@ -49,17 +56,27 @@
         android:layout_margin="15dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/flagCountryDetails"
-        tools:text="Language: Japanese" />
-
-    <TextView
-        android:id="@+id/descriptionDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/populationDetails"
-        app:layout_constraintWidth_default="percent" />
+        tools:text="Language: Japanese" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/languageDetails"
+        app:layout_constraintWidth_default="percent">
+
+        <TextView
+            android:id="@+id/descriptionDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

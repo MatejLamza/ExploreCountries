@@ -10,7 +10,7 @@ data class Country(
     val region: String,
     val population: Long,
     val flag: String,
-    val latLng: List<Float>,
+    val latlng: List<Double>,
     val description: String,
     val language: List<String>
 ) : Parcelable

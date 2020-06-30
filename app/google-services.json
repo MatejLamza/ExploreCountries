@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "667627136591",
+    "firebase_url": "https://exploretheworld.firebaseio.com",
+    "project_id": "exploretheworld",
+    "storage_bucket": "exploretheworld.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667627136591:android:76a6da2a40138f0c556c3a",
+        "android_client_info": {
+          "package_name": "com.example.exploretheworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667627136591-mt8ld9g6dhip7u2q21tf51692ba0no6e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.exploretheworld",
+            "certificate_hash": "aabe2fd1eea6c6c7fce0582b1f060f60351324ac"
+          }
+        },
+        {
+          "client_id": "667627136591-jo6n8sbotm030n8j8uoetho2q1h0lj5o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI3Twam3_D3iTLYgIOTA92qB6DHBKBeQs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667627136591-jo6n8sbotm030n8j8uoetho2q1h0lj5o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
