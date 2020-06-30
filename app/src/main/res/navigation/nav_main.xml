@@ -21,4 +21,8 @@
             android:name="country"
             app:argType="com.example.exploretheworld.data.models.Country" />
     </fragment>
+    <fragment
+        android:id="@+id/fragmentTest"
+        android:name="com.example.exploretheworld.flow.countries.details.FragmentMap"
+        android:label="FragmentTest" />
 </navigation>
