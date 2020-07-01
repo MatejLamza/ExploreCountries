@@ -14,3 +14,8 @@ data class Country(
     val description: String,
     val language: List<String>
 ) : Parcelable
+
+@Parcelize
+data class ListCountry(
+    val countries: List<Country>
+) : Parcelable
