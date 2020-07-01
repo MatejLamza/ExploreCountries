@@ -10,8 +10,8 @@
         android:name="com.example.exploretheworld.flow.countries.CountriesFragment"
         android:label="CountriesFragment">
         <action
-            android:id="@+id/action_countriesFragment_to_countryDetailsFragment"
-            app:destination="@id/countryDetailsFragment" />
+            android:id="@+id/action_countriesFragment_to_countriesPagerFragment"
+            app:destination="@id/countriesPagerFragment" />
     </fragment>
     <fragment
         android:id="@+id/countryDetailsFragment"
@@ -25,4 +25,18 @@
         android:id="@+id/fragmentTest"
         android:name="com.example.exploretheworld.flow.countries.details.FragmentMap"
         android:label="FragmentTest" />
+    <fragment
+        android:id="@+id/countriesPagerFragment"
+        android:name="com.example.exploretheworld.flow.countries.pager.CountriesPagerFragment"
+        android:label="CountriesPagerFragment">
+        <action
+            android:id="@+id/action_countriesPagerFragment_to_countryDetailsFragment"
+            app:destination="@id/countryDetailsFragment" />
+        <argument
+            android:name="countries"
+            app:argType="com.example.exploretheworld.data.models.ListCountry" />
+        <argument
+            android:name="position"
+            app:argType="integer" />
+    </fragment>
 </navigation>

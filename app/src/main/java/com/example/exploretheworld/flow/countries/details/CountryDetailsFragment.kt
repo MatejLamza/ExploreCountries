@@ -21,6 +21,14 @@ class CountryDetailsFragment : Fragment() {
         args.country
     }
 
+    companion object {
+        fun create(bundle: Bundle): CountryDetailsFragment {
+            val fragment = CountryDetailsFragment()
+            fragment.arguments = bundle
+            return fragment
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

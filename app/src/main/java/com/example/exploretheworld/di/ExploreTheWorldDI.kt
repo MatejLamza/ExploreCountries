@@ -1,6 +1,7 @@
 package com.example.exploretheworld.di
 
 import android.app.Application
+import com.example.exploretheworld.di.modules.adapterModule
 import com.example.exploretheworld.di.modules.appModule
 import com.example.exploretheworld.di.modules.dataSourceModule
 import com.example.exploretheworld.di.modules.viewModelsModule
@@ -16,7 +17,8 @@ class ExploreTheWorldDI(private val application: Application) {
     private val modules: List<Module> = listOf(
         appModule,
         dataSourceModule,
-        viewModelsModule
+        viewModelsModule,
+        adapterModule
     )
 
     fun initialize() {

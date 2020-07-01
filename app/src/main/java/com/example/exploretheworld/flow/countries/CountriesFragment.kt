@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.example.exploretheworld.R
-import com.example.exploretheworld.flow.countries.details.CountryDetailsFragmentArgs
+import com.example.exploretheworld.data.models.Country
+import com.example.exploretheworld.data.models.ListCountry
+import com.example.exploretheworld.flow.countries.pager.CountriesPagerFragmentArgs
 import com.example.exploretheworld.utils.extensions.withDivider
 import kotlinx.android.synthetic.main.fragment_countries.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -19,6 +21,7 @@ class CountriesFragment : Fragment() {
     private val countriesAdapter: CountryAdapter by lazy {
         CountryAdapter()
     }
+    private var listOfCountries: List<Country> = emptyList()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,8 +41,11 @@ class CountriesFragment : Fragment() {
         countriesAdapter.onCoutryClicked = { country ->
             //Todo redirect to fragment country details
             findNavController().navigate(
-                R.id.action_countriesFragment_to_countryDetailsFragment,
-                CountryDetailsFragmentArgs(country).toBundle()
+                R.id.action_countriesFragment_to_countriesPagerFragment,
+                CountriesPagerFragmentArgs(
+                    ListCountry(listOfCountries),
+                    listOfCountries.indexOf(country)
+                ).toBundle()
             )
         }
         countriesList.withDivider()
@@ -49,6 +55,7 @@ class CountriesFragment : Fragment() {
     private fun bind() {
         countriesViewModel.countries.observe(viewLifecycleOwner) { countries ->
             countriesAdapter.countries = countries
+            listOfCountries = countries
         }
     }
 }
