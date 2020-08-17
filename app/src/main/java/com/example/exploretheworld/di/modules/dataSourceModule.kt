@@ -12,5 +12,5 @@ val dataSourceModule = module {
     }
 
     single { provideDataSource(apiService = get()) }
-    single { DataRepository(apiDataSource = get()) }
+    single { DataRepository(apiDataSource = get(), database = get()) }
 }

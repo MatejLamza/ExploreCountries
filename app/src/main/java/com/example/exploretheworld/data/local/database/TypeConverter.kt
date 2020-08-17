@@ -6,7 +6,7 @@ import com.example.exploretheworld.data.models.ListCountry
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-object TypeConverter {
+class TypeConverter {
 
     @TypeConverter
     fun fromCountries(counties: ListCountry): String =

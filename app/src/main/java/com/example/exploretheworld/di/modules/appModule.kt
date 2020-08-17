@@ -1,11 +1,14 @@
 package com.example.exploretheworld.di.modules
 
+import android.content.Context
+import androidx.room.Room
 import com.example.exploretheworld.data.local.database.ExploreTheWorldDAO
 import com.example.exploretheworld.data.local.database.ExploreTheWorldDatabase
 import com.example.exploretheworld.data.remote.services.APIService
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
+import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -28,17 +31,14 @@ val appModule = module {
             .create(APIService::class.java)
     }
 
-//    fun provideExploreTheWorldDatabase(context: Context): ExploreTheWorldDatabase {
-//        return Room.databaseBuilder(context, ExploreTheWorldDatabase::class.java, DB_NAME).build()
-//    }
+    fun provideExploreTheWorldDatabase(context: Context): ExploreTheWorldDatabase {
+        return Room.databaseBuilder(context, ExploreTheWorldDatabase::class.java, DB_NAME).build()
+    }
 
     fun provideExploreTheWorldDAO(database: ExploreTheWorldDatabase): ExploreTheWorldDAO {
         return database.getExploreTheWorldDAO()
     }
 
-//    single { provideExploreTheWorldDAO(database = get()) }
-
-//    factory { provideExploreTheWorldDatabase(context = get()) }
-
+    single { provideExploreTheWorldDAO(database = provideExploreTheWorldDatabase(androidApplication())) }
     single { provideAPIService() }
 }

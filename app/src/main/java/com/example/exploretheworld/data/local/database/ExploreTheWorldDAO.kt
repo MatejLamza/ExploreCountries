@@ -14,5 +14,5 @@ interface ExploreTheWorldDAO {
     suspend fun upsertCountries(countries: ListCountry)
 
     @Query("SELECT * FROM countries WHERE idCountries = $CURRENT_COUNTRIES_ID")
-    suspend fun getCountriesFromDatabse(): ListCountry
+    suspend fun getCountriesFromDatabse(): ListCountry?
 }

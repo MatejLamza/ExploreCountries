@@ -15,9 +15,8 @@ class APIDataSourceImpl(private val api: APIService) : APIDataSource {
     override val downloadedCountries: LiveData<List<Country>> = _downloadedCountries
 
     override suspend fun getCountries(): List<Country> {
-
         return withContext(IO) {
-//                _downloadedCountries.postValue(api.fetchCountries())
+            _downloadedCountries.postValue(api.fetchCountries())
             api.fetchCountries()
         }
     }
