@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_countriesFragment_to_countriesPagerFragment"
             app:destination="@id/countriesPagerFragment" />
+        <action
+            android:id="@+id/action_countriesFragment_to_top10CitiesFragment"
+            app:destination="@id/top10CitiesFragment" />
     </fragment>
     <fragment
         android:id="@+id/countryDetailsFragment"
@@ -39,4 +42,8 @@
             android:name="position"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/top10CitiesFragment"
+        android:name="com.example.exploretheworld.flow.cities.Top10CitiesFragment"
+        android:label="Top10CitiesFragment" />
 </navigation>
