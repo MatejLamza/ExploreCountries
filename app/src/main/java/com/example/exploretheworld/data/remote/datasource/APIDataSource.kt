@@ -7,6 +7,7 @@ import com.example.exploretheworld.data.models.Country
 interface APIDataSource {
 
     val downloadedCountries: LiveData<List<Country>>
+    val downloadedTop10Cities: LiveData<List<City>>
 
     suspend fun getCountries(): List<Country>
     suspend fun getTop10Cities(): List<City>

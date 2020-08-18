@@ -1,5 +1,6 @@
 package com.example.exploretheworld.flow.cities
 
+import android.util.Log
 import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.EpoxyController
 import com.airbnb.epoxy.carousel
@@ -34,6 +35,7 @@ class RegionCitiesController : EpoxyController() {
         }
 
         cities.forEach {
+            Log.d("bbb", "City: $it")
             citiyItemView {
                 id("temp")
                 cityName(it.city)
