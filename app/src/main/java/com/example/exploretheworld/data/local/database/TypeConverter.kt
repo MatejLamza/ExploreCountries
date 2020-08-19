@@ -8,7 +8,7 @@ import com.google.gson.reflect.TypeToken
 
 class TypeConverter {
     @TypeConverter
-    fun fromCountriesList(countries: List<Country>) =
+    fun fromCountriesList(countries: List<Country>): String =
         Gson().toJson(countries, object : TypeToken<List<Country>>() {}.type)
 
     @TypeConverter
@@ -18,7 +18,7 @@ class TypeConverter {
     }
 
     @TypeConverter
-    fun fromCities(cities: List<City>) =
+    fun fromCities(cities: List<City>): String =
         Gson().toJson(cities, object : TypeToken<List<City>>() {}.type)
 
     @TypeConverter

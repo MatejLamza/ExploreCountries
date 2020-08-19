@@ -15,6 +15,7 @@ data class City(
     val country: String,
     val population: Long,
     val latlng: List<Double>,
+    val background: String,
     val description: String
 ) : Parcelable
 

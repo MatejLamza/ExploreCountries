@@ -1,6 +1,5 @@
 package com.example.exploretheworld.utils
 
-import com.example.exploretheworld.data.models.City
 import com.example.exploretheworld.data.models.Region
 
 object Mock {
@@ -15,13 +14,13 @@ object Mock {
         )
     }
 
-    val cities: List<City> by lazy {
-        listOf(
-            City(1, "Tokyo", "Japan", 173294, emptyList(), ""),
-            City(2, "Sao Paolo", "Brazil", 173294, emptyList(), ""),
-            City(3, "New York", "USA", 173294, emptyList(), ""),
-            City(4, "Mumbai", "India", 173294, emptyList(), ""),
-            City(5, "Instanbull", "Turkey", 173294, emptyList(), "")
-        )
-    }
+//    val cities: List<City> by lazy {
+//        listOf(
+//            City(1, "Tokyo", "Japan", 173294, emptyList(), ""),
+//            City(2, "Sao Paolo", "Brazil", 173294, emptyList(), ""),
+//            City(3, "New York", "USA", 173294, emptyList(), ""),
+//            City(4, "Mumbai", "India", 173294, emptyList(), ""),
+//            City(5, "Instanbull", "Turkey", 173294, emptyList(), "")
+//        )
+//    }
 }

@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploretheworld.R
+import com.example.exploretheworld.common.GlideApp
 import com.example.exploretheworld.data.models.City
 import kotlinx.android.synthetic.main.item_city.view.*
 
@@ -35,6 +36,8 @@ class Top10CitiesAdapter : RecyclerView.Adapter<Top10CitiesAdapter.Top10CitiesVi
                     itemView.cityName.text = value.city
                     itemView.country.text = value.country
                     itemView.cityPopulation.text = value.city
+                    GlideApp.with(itemView.context).load(value.background)
+                        .into(itemView.cityBackground)
                 }
             }
     }

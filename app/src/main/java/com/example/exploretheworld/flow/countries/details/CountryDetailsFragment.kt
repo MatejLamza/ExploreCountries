@@ -55,9 +55,9 @@ class CountryDetailsFragment : Fragment() {
     private fun setupUI(view: View) {
         countryNameDetails.text = country.name
         setImage(country.flag, view)
-        populationDetails.setText(getString(R.string.common_population, country.population))
+        populationDetails.text = getString(R.string.common_population, country.population)
         descriptionDetails.text = country.description
-        languageDetails.text = setLanguage(country.language)
+//        languageDetails.text = setLanguage(country.language)
     }
 
     private fun setImage(image: String, view: View) {
@@ -70,7 +70,7 @@ class CountryDetailsFragment : Fragment() {
     }
 
     private fun setLanguage(langagues: List<String>): String {
-        var language = ""
+        var language: String? = null
         if (langagues.size > 1) {
             language += "Languages: "
             langagues.forEach { lang ->
@@ -79,6 +79,6 @@ class CountryDetailsFragment : Fragment() {
         } else {
             language += "Language: ${langagues.firstOrNull()}"
         }
-        return language
+        return language.orEmpty()
     }
 }
