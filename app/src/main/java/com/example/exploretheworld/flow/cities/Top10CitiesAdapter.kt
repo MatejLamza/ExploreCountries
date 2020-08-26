@@ -34,8 +34,6 @@ class Top10CitiesAdapter : RecyclerView.Adapter<Top10CitiesAdapter.Top10CitiesVi
                 field = value
                 if (value != null) {
                     itemView.cityName.text = value.city
-                    itemView.country.text = value.country
-                    itemView.cityPopulation.text = value.city
                     GlideApp.with(itemView.context).load(value.background)
                         .into(itemView.cityBackground)
                 }

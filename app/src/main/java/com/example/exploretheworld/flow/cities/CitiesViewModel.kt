@@ -20,7 +20,10 @@ class CitiesViewModel(private val repo: DataRepository) : ViewModel() {
     val top10Cities: LiveData<List<City>> = liveData {
         try {
             _state.postValue(Loading)
-            delay(3000)
+            /**
+             * Simulate slow connection so animation has time to show
+             */
+            delay(2000)
             emit(repo.fetchTop10Cities())
             _state.postValue(Done())
         } catch (e: Exception) {
