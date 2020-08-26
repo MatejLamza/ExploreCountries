@@ -60,23 +60,33 @@
         app:layout_constraintTop_toBottomOf="@id/populationDetails"
         tools:text="Language: Japanese" />
 
-    <ScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/languageDetails"
-        app:layout_constraintWidth_default="percent">
+        app:layout_constraintTop_toBottomOf="@id/languageDetails">
 
-        <TextView
-            android:id="@+id/descriptionDetails"
-            android:layout_width="wrap_content"
+        <ScrollView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_20"
-            android:textSize="@dimen/description_text_size"
-            android:textStyle="bold" />
+            android:scrollbars="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/languageDetails"
+            app:layout_constraintWidth_default="percent">
 
-    </ScrollView>
+            <TextView
+                android:id="@+id/descriptionDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_20"
+                android:textSize="@dimen/description_text_size"
+                android:textStyle="bold" />
+
+        </ScrollView>
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
