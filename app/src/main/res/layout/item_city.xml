@@ -11,7 +11,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp">
+        android:layout_height="@dimen/card_height">
 
         <ImageView
             android:id="@+id/cityBackground"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:textColor="@color/white"
-            android:textSize="35sp"
+            android:textSize="@dimen/main_text_size"
             android:translationZ="100dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

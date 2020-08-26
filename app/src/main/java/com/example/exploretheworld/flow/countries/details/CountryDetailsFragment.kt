@@ -12,7 +12,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.exploretheworld.R
 import com.example.exploretheworld.data.models.Country
-import kotlinx.android.synthetic.main.fragment_country_details.*
+import kotlinx.android.synthetic.main.fragment_details.*
 
 class CountryDetailsFragment : Fragment() {
 
@@ -32,7 +32,7 @@ class CountryDetailsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_country_details, container, false)
+        return inflater.inflate(R.layout.fragment_details, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,7 +51,7 @@ class CountryDetailsFragment : Fragment() {
     }
 
     private fun setupUI(view: View) {
-        countryNameDetails.text = country.name
+        nameDetails.text = country.name
         setImage(country.flag, view)
         populationDetails.text = getString(R.string.common_population, country.population)
         descriptionDetails.text = country.description

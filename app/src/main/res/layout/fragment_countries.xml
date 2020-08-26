@@ -14,8 +14,8 @@
 
     <ProgressBar
         android:id="@+id/loadingCountries"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/spinner_dimens"
+        android:layout_height="@dimen/spinner_dimens"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -9,7 +9,7 @@ import com.example.exploretheworld.R
 import com.example.exploretheworld.common.mvvm.BaseFragment
 import com.example.exploretheworld.flow.countries.details.FRAGMENT_CITY_MAP
 import com.example.exploretheworld.flow.countries.details.FragmentMap
-import kotlinx.android.synthetic.main.fragment_country_details.*
+import kotlinx.android.synthetic.main.fragment_details.*
 
 class CityDetailsFragment : BaseFragment() {
 
@@ -28,7 +28,7 @@ class CityDetailsFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_country_details, container, false)
+        return inflater.inflate(R.layout.fragment_details, container, false)
     }
 
 
@@ -48,7 +48,7 @@ class CityDetailsFragment : BaseFragment() {
     }
 
     private fun setupUI() {
-        countryNameDetails.text = args.currentCity.city
+        nameDetails.text = args.currentCity.city
         populationDetails.text = args.currentCity.population.toString()
         descriptionDetails.text = args.currentCity.description
     }
