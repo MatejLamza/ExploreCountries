@@ -9,8 +9,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
-import kotlin.experimental.ExperimentalTypeInference
-
 
 fun LiveData<State>.observe(
     owner: LifecycleOwner,
@@ -81,32 +79,3 @@ fun ViewModel.launchWithState(
     onDone?.invoke()
 }
 
-@OptIn(ExperimentalTypeInference::class)
-fun <T> liveData(
-    state: MutableLiveData<State>,
-    context: CoroutineContext = exceptionHandler(state),
-    timeoutMS: Long = 5000L, // DEFAULT_TIMEOUT is `internal`
-    @BuilderInference block: suspend LiveDataScope<T>.() -> Unit
-): LiveData<T> = androidx.lifecycle.liveData(context, timeoutMS) {
-    state.value = Loading
-    block()
-}
-
-
-fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: Observer<T>) {
-    observe(lifecycleOwner, object : Observer<T> {
-        override fun onChanged(t: T) {
-            observer.onChanged(t)
-            removeObserver(this)
-        }
-    })
-}
-
-fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: (T) -> Unit) {
-    observe(lifecycleOwner, object : Observer<T> {
-        override fun onChanged(t: T) {
-            observer.invoke(t)
-            removeObserver(this)
-        }
-    })
-}

@@ -11,6 +11,8 @@ import kotlinx.android.synthetic.main.item_city.view.*
 
 class Top10CitiesAdapter : RecyclerView.Adapter<Top10CitiesAdapter.Top10CitiesViewHolder>() {
 
+    var onCityClicked: ((city: City) -> Unit)? = null
+
     var cities: List<City> = listOf()
         set(value) {
             field = value
@@ -38,5 +40,11 @@ class Top10CitiesAdapter : RecyclerView.Adapter<Top10CitiesAdapter.Top10CitiesVi
                         .into(itemView.cityBackground)
                 }
             }
+
+        init {
+            itemView.setOnClickListener {
+                onCityClicked?.invoke(cities[layoutPosition])
+            }
+        }
     }
 }

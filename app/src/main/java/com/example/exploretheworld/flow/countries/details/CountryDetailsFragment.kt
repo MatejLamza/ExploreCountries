@@ -17,9 +17,7 @@ import kotlinx.android.synthetic.main.fragment_country_details.*
 class CountryDetailsFragment : Fragment() {
 
     private val args: CountryDetailsFragmentArgs by navArgs()
-    private val country: Country by lazy {
-        args.country
-    }
+    private val country: Country by lazy { args.country }
 
     companion object {
         fun create(bundle: Bundle): CountryDetailsFragment {

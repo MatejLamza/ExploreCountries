@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import com.example.exploretheworld.R
 import com.example.exploretheworld.common.mvvm.BaseFragment
 import com.example.exploretheworld.common.state.observe
@@ -30,8 +31,18 @@ class Top10CitiesFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupUI()
         setupRecyclerView()
         bind()
+    }
+
+    private fun setupUI() {
+        cityAdapter.onCityClicked = { city ->
+            findNavController().navigate(
+                R.id.action_top10CitiesFragment_to_cityDetailsFragment,
+                CityDetailsFragmentArgs(city).toBundle()
+            )
+        }
     }
 
     private fun setupRecyclerView() {

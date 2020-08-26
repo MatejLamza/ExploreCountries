@@ -45,5 +45,17 @@
     <fragment
         android:id="@+id/top10CitiesFragment"
         android:name="com.example.exploretheworld.flow.cities.Top10CitiesFragment"
-        android:label="Top10CitiesFragment" />
+        android:label="Top10CitiesFragment">
+        <action
+            android:id="@+id/action_top10CitiesFragment_to_cityDetailsFragment"
+            app:destination="@id/cityDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cityDetailsFragment"
+        android:name="com.example.exploretheworld.flow.cities.CityDetailsFragment"
+        android:label="CityDetailsFragment">
+        <argument
+            android:name="currentCity"
+            app:argType="com.example.exploretheworld.data.models.City" />
+    </fragment>
 </navigation>
