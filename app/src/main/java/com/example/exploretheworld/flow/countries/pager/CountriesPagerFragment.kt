@@ -39,7 +39,10 @@ class CountriesPagerFragment : Fragment() {
     private fun setupUI() {
         countriesPager.adapter = pagerAdapter
         pagerAdapter.countries = args.countries.countries
-        pagerAdapter.createFragment(args.position)
         countriesPager.registerOnPageChangeCallback(changePageListener)
+        /**
+         * Bug if position is less then 5
+         */
+        countriesPager.setCurrentItem(args.position, true)
     }
 }

@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.example.exploretheworld.R
+import com.example.exploretheworld.common.mvvm.BaseFragment
+import com.example.exploretheworld.common.state.observe
 import com.example.exploretheworld.data.models.Country
 import com.example.exploretheworld.data.models.ListCountry
 import com.example.exploretheworld.flow.countries.pager.CountriesPagerFragmentArgs
@@ -15,7 +16,7 @@ import com.example.exploretheworld.utils.extensions.withDivider
 import kotlinx.android.synthetic.main.fragment_countries.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CountriesFragment : Fragment() {
+class CountriesFragment : BaseFragment() {
 
     private val countriesViewModel: CountriesViewModel by viewModel()
     private val countriesAdapter: CountryAdapter by lazy {
@@ -57,5 +58,14 @@ class CountriesFragment : Fragment() {
             countriesAdapter.countries = countries
             listOfCountries = countries
         }
+        countriesViewModel.state.observe(viewLifecycleOwner, this)
+    }
+
+    override fun showLoading() {
+        loadingCountries.visibility = View.VISIBLE
+    }
+
+    override fun dismissLoading() {
+        loadingCountries.visibility = View.GONE
     }
 }

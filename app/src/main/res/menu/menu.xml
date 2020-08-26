@@ -12,6 +12,11 @@
             android:id="@+id/citiesFragment"
             android:icon="@drawable/ic_baseline_location_city"
             android:title="@string/cities_menu_option" />
+
+        <item
+            android:id="@+id/top10CitiesFragment"
+            android:icon="@drawable/ic_baseline_location_city"
+            android:title="Top 10 Cities" />
     </group>
 
     <group

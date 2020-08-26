@@ -1,7 +1,11 @@
 package com.example.exploretheworld.data.models
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
+
+const val CURRENT_COUNTRIES_ID = 0
 
 @Parcelize
 data class Country(
@@ -16,6 +20,10 @@ data class Country(
 ) : Parcelable
 
 @Parcelize
+@Entity(tableName = "Countries")
 data class ListCountry(
     val countries: List<Country>
-) : Parcelable
+) : Parcelable {
+    @PrimaryKey(autoGenerate = false)
+    var idCountries = CURRENT_COUNTRIES_ID
+}

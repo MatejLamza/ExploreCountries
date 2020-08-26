@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_countriesFragment_to_countriesPagerFragment"
             app:destination="@id/countriesPagerFragment" />
+        <action
+            android:id="@+id/action_countriesFragment_to_top10CitiesFragment"
+            app:destination="@id/top10CitiesFragment" />
     </fragment>
     <fragment
         android:id="@+id/countryDetailsFragment"
@@ -38,5 +41,21 @@
         <argument
             android:name="position"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/top10CitiesFragment"
+        android:name="com.example.exploretheworld.flow.cities.Top10CitiesFragment"
+        android:label="Top10CitiesFragment">
+        <action
+            android:id="@+id/action_top10CitiesFragment_to_cityDetailsFragment"
+            app:destination="@id/cityDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cityDetailsFragment"
+        android:name="com.example.exploretheworld.flow.cities.CityDetailsFragment"
+        android:label="CityDetailsFragment">
+        <argument
+            android:name="currentCity"
+            app:argType="com.example.exploretheworld.data.models.City" />
     </fragment>
 </navigation>

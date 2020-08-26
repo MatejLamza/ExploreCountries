@@ -1,4 +1,4 @@
-package com.example.exploretheworld.flow.countries
+package com.example.exploretheworld.flow.cities
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,23 +8,26 @@ import com.example.exploretheworld.common.state.Done
 import com.example.exploretheworld.common.state.Error
 import com.example.exploretheworld.common.state.Loading
 import com.example.exploretheworld.common.state.State
-import com.example.exploretheworld.data.models.Country
+import com.example.exploretheworld.data.models.City
 import com.example.exploretheworld.data.repositories.DataRepository
 import kotlinx.coroutines.delay
 
-class CountriesViewModel(private val repository: DataRepository) : ViewModel() {
+class CitiesViewModel(private val repo: DataRepository) : ViewModel() {
 
     private var _state = MutableLiveData<State>()
     val state: LiveData<State> = _state
 
-    val countries: LiveData<List<Country>> = liveData {
+    val top10Cities: LiveData<List<City>> = liveData {
         try {
-            _state.value = Loading
-            delay(500)
-            emit(repository.fetchAllCountries())
-            _state.value = Done()
+            _state.postValue(Loading)
+            /**
+             * Simulate slow connection so animation has time to show
+             */
+            delay(2000)
+            emit(repo.fetchTop10Cities())
+            _state.postValue(Done())
         } catch (e: Exception) {
-            _state.value = Error(e)
+            _state.postValue(Error(e))
         }
     }
 }

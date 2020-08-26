@@ -11,6 +11,8 @@ project.ext {
     converterRetrofitVersion = "0.9.2"
     navigationVersion = "2.2.2"
     glideVersion = "4.10.0"
+    epoxyVersion = "3.9.0"
+    roomVersion = "2.2.5"
 
 }
 buildscript {
