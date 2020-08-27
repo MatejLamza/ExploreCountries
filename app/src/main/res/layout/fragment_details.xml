@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/fire_opal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/fire_opal">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/mapContainer"
@@ -26,48 +26,70 @@
         android:layout_width="@dimen/image_width"
         android:layout_height="@dimen/circluarImage"
         android:layout_margin="@dimen/margin_15"
-        app:layout_constraintStart_toStartOf="parent"
         android:contentDescription="@string/country_flag"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mapContainer" />
 
     <TextView
         android:id="@+id/nameDetails"
-        android:layout_width="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
-        android:maxLines="2"
         android:textSize="35sp"
         app:layout_constraintStart_toEndOf="@id/flagCountryDetails"
         app:layout_constraintTop_toBottomOf="@id/mapContainer"
         tools:text="Solomon Islands" />
 
     <TextView
+        android:id="@+id/populationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Population: "
+        android:textSize="@dimen/regular_text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/flagCountryDetails" />
+
+    <TextView
         android:id="@+id/populationDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_15"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
         android:textSize="@dimen/regular_text_size"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/populationLabel"
         app:layout_constraintTop_toBottomOf="@id/flagCountryDetails"
-        tools:text="Population: 100 million" />
+        tools:text="100 million" />
+
+    <TextView
+        android:id="@+id/languageLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Languages: "
+        android:textSize="@dimen/regular_text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/populationLabel" />
 
     <TextView
         android:id="@+id/languageDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_15"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
         android:textSize="@dimen/regular_text_size"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/languageLabel"
         app:layout_constraintTop_toBottomOf="@id/populationDetails"
-        tools:text="Language: Japanese" />
+        tools:text="Japanese" />
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -18,6 +18,7 @@ class CountryDetailsFragment : Fragment() {
 
     private val args: CountryDetailsFragmentArgs by navArgs()
     private val country: Country by lazy { args.country }
+    var languagesStr: String = ""
 
     companion object {
         fun create(bundle: Bundle): CountryDetailsFragment {
@@ -53,7 +54,7 @@ class CountryDetailsFragment : Fragment() {
     private fun setupUI(view: View) {
         nameDetails.text = country.name
         setImage(country.flag, view)
-        populationDetails.text = getString(R.string.common_population, country.population)
+        populationDetails.text = country.population.toString()
         descriptionDetails.text = country.description
 //        languageDetails.text = setLanguage(country.language)
     }
@@ -68,15 +69,13 @@ class CountryDetailsFragment : Fragment() {
     }
 
     private fun setLanguage(langagues: List<String>): String {
-        var language: String? = null
-        if (langagues.size > 1) {
-            language += "Languages: "
-            langagues.forEach { lang ->
-                language += "$lang "
-            }
+        if (langagues.size == 1) {
+            return langagues[0]
         } else {
-            language += "Language: ${langagues.firstOrNull()}"
+            langagues.forEach {
+                languagesStr += "$it, "
+            }
+            return languagesStr
         }
-        return language.orEmpty()
     }
 }
