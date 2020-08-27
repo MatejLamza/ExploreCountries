@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/fire_opal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -26,17 +27,20 @@
         android:layout_height="@dimen/circluarImage"
         android:layout_margin="@dimen/margin_15"
         app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/country_flag"
         app:layout_constraintTop_toBottomOf="@id/mapContainer" />
 
     <TextView
         android:id="@+id/nameDetails"
         android:layout_width="wrap_content"
+        android:layout_marginStart="15dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_25"
-        android:textSize="@dimen/main_text_size"
+        android:layout_marginTop="25dp"
+        android:maxLines="2"
+        android:textSize="35sp"
         app:layout_constraintStart_toEndOf="@id/flagCountryDetails"
         app:layout_constraintTop_toBottomOf="@id/mapContainer"
-        tools:text="Japan" />
+        tools:text="Solomon Islands" />
 
     <TextView
         android:id="@+id/populationDetails"

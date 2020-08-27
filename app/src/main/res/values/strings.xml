@@ -21,4 +21,5 @@
         <item>Settings</item>
     </string-array>
     <string name="title_activity_test_maps">Map</string>
+    <string name="country_flag">Country flag</string>
 </resources>

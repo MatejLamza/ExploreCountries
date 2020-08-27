@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:backgroundTint="@color/lightGrey"
+    android:layout_margin="10dp"
+    android:backgroundTint="@color/maximum_yellow_red"
     android:clickable="true"
     android:focusable="true"
-    android:layout_margin="10dp"
     app:cardCornerRadius="@dimen/corner_radius_small">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,32 +25,57 @@
 
         <TextView
             android:id="@+id/countryName"
-            tools:text="Canada"
-            android:textSize="25sp"
-            android:layout_margin="@dimen/margin_20"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/countryFlag"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="United States Of America" />
+
+        <TextView
+            android:id="@+id/capitalLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Capital:"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/countryFlag"
+            app:layout_constraintTop_toBottomOf="@id/countryName" />
+
 
         <TextView
             android:id="@+id/countryCapital"
-            tools:text="Capital: Ottawa"
-            android:layout_margin="@dimen/margin_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toEndOf="@id/capitalLabel"
             app:layout_constraintTop_toBottomOf="@id/countryName"
-            app:layout_constraintStart_toEndOf="@id/countryFlag"/>
+            tools:text="Ottawa" />
+
+        <TextView
+            android:id="@+id/populationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20"
+            android:layout_marginTop="10dp"
+            android:text="Population: "
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/countryFlag"
+            app:layout_constraintTop_toBottomOf="@id/capitalLabel" />
 
         <TextView
             android:id="@+id/countryPopulation"
-            tools:text="Population: 2880582"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_20"
-            app:layout_constraintTop_toBottomOf="@id/countryName"
-            app:layout_constraintStart_toEndOf="@id/countryCapital"/>
+            android:layout_margin="10dp"
+            app:layout_constraintStart_toEndOf="@id/populationLabel"
+            app:layout_constraintTop_toBottomOf="@id/countryCapital"
+            tools:text="2880582" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>
