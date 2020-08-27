@@ -58,4 +58,8 @@
             android:name="currentCity"
             app:argType="com.example.exploretheworld.data.models.City" />
     </fragment>
+    <activity
+        android:id="@+id/splashActivity"
+        android:name="com.example.exploretheworld.flow.splash.SplashActivity"
+        android:label="SplashActivity" />
 </navigation>

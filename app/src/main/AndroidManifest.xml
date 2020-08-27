@@ -32,6 +32,10 @@
             android:value="@string/google_maps_key" />
 
         <activity android:name=".flow.host.HostActivity">
+
+        </activity>
+
+        <activity android:name=".flow.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
