@@ -2,6 +2,7 @@ package com.example.exploretheworld.di.modules
 
 import android.content.Context
 import androidx.room.Room
+import com.example.exploretheworld.BuildConfig
 import com.example.exploretheworld.data.local.database.ExploreTheWorldDAO
 import com.example.exploretheworld.data.local.database.ExploreTheWorldDatabase
 import com.example.exploretheworld.data.remote.services.APIService
@@ -9,6 +10,7 @@ import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -41,4 +43,7 @@ val appModule = module {
 
     single { provideExploreTheWorldDAO(database = provideExploreTheWorldDatabase(androidApplication())) }
     single { provideAPIService() }
+    single {
+        androidContext().getSharedPreferences(BuildConfig.PREFERENCES, Context.MODE_PRIVATE)
+    }
 }

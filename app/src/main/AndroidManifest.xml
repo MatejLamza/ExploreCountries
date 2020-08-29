@@ -31,11 +31,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".flow.host.HostActivity">
-
-        </activity>
-
-        <activity android:name=".flow.splash.SplashActivity">
+        <activity android:name=".flow.host.HostActivity" />
+        <activity android:name=".flow.splash.SplashActivity" />
+        <activity android:name=".flow.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

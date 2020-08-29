@@ -1,10 +1,7 @@
 package com.example.exploretheworld.di
 
 import android.app.Application
-import com.example.exploretheworld.di.modules.adapterModule
-import com.example.exploretheworld.di.modules.appModule
-import com.example.exploretheworld.di.modules.dataSourceModule
-import com.example.exploretheworld.di.modules.viewModelsModule
+import com.example.exploretheworld.di.modules.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.KoinApplication
@@ -18,7 +15,8 @@ class ExploreTheWorldDI(private val application: Application) {
         appModule,
         dataSourceModule,
         viewModelsModule,
-        adapterModule
+        adapterModule,
+        repositoryModule
     )
 
     fun initialize() {
