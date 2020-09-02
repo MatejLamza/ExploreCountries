@@ -17,6 +17,9 @@ class CitiesViewModel(private val repo: DataRepository) : ViewModel() {
     private var _state = MutableLiveData<State>()
     val state: LiveData<State> = _state
 
+    /**
+     * Cities are pre fetched during splash screen so we are fetching now form cache.
+     */
     val top10Cities: LiveData<List<City>> = liveData {
         try {
             _state.postValue(Loading)
@@ -24,7 +27,7 @@ class CitiesViewModel(private val repo: DataRepository) : ViewModel() {
              * Simulate slow connection so animation has time to show
              */
             delay(2000)
-            emit(repo.fetchTop10Cities())
+            emit(repo.getAllCities())
             _state.postValue(Done())
         } catch (e: Exception) {
             _state.postValue(Error(e))

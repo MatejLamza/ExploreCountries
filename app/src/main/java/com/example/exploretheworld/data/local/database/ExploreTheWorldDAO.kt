@@ -19,8 +19,8 @@ interface ExploreTheWorldDAO {
     suspend fun upsertTop10Cities(cities: ListCities)
 
     @Query("SELECT * FROM countries WHERE idCountries = $CURRENT_COUNTRIES_ID")
-    suspend fun getCountriesFromDatabse(): ListCountry?
+    suspend fun getCountriesFromDatabse(): ListCountry
 
     @Query("SELECT * FROM City WHERE idCities = $CURRENT_CITY_ID")
-    suspend fun getCitiesFromDatabase(): ListCities?
+    suspend fun getCitiesFromDatabase(): ListCities
 }

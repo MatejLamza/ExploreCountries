@@ -1,14 +1,13 @@
 package com.example.exploretheworld.data.repositories
 
 import com.example.exploretheworld.data.local.database.ExploreTheWorldDAO
-import com.example.exploretheworld.data.models.ListCities
-import com.example.exploretheworld.data.models.ListCountry
 import com.example.exploretheworld.data.remote.datasource.APIDataSource
 import com.example.exploretheworld.utils.mappers.mapToList
+import com.example.exploretheworld.utils.mappers.mapToListCity
+import com.example.exploretheworld.utils.mappers.mapToListCountry
 import com.example.exploretheworld.utils.mappers.mapToLocalModel
 import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class DataRepository(
     private val apiDataSource: APIDataSource,
@@ -16,45 +15,20 @@ class DataRepository(
 ) {
 
     /**
-     * This ensures that every time application starts new data is fetched and being stored in database.
+     * This function runs on IO thread and it fetches countries and cities from API and saves them directly into database.
+     * This will be executed every time user starts application during splash screen, so there is new data every time user
+     * enters application.
      */
-    init {
-        GlobalScope.launch {
-            apiDataSource.getCountries()
-            apiDataSource.getTop10Cities()
-        }
-        apiDataSource.downloadedCountries.observeForever { countries ->
-            if (countries != null) {
-                persistDownloadedCountries(ListCountry(countries))
-            }
-        }
-        apiDataSource.downloadedTop10Cities.observeForever { downloadedCities ->
-            if (downloadedCities != null) {
-                persistDownloadedTop10Cities(ListCities(downloadedCities))
-            }
+    suspend fun fetchAndSaveDataToDatabase() {
+        withContext(IO) {
+            database.upsertCountries(apiDataSource.getCountries().mapToListCountry())
+            database.upsertTop10Cities(apiDataSource.getTop10Cities().mapToListCity())
         }
     }
 
     /**
-     * When first time opening application database will be empty. In that case we can ensure that we get data from api.
+     * Because we previously fetched data from API
      */
-    suspend fun fetchAllCountries() =
-        if (database.getCountriesFromDatabse() == null) apiDataSource.getCountries() else database.getCountriesFromDatabse()
-            ?.mapToList().orEmpty()
-
-    suspend fun fetchTop10Cities() =
-        if (database.getCitiesFromDatabase() == null) apiDataSource.getTop10Cities() else database.getCitiesFromDatabase()
-            ?.mapToLocalModel().orEmpty()
-
-    private fun persistDownloadedCountries(countries: ListCountry) {
-        GlobalScope.launch(IO) {
-            database.upsertCountries(countries)
-        }
-    }
-
-    private fun persistDownloadedTop10Cities(cities: ListCities) {
-        GlobalScope.launch(IO) {
-            database.upsertTop10Cities(cities)
-        }
-    }
+    suspend fun getAllCountries() = database.getCountriesFromDatabse().mapToList()
+    suspend fun getAllCities() = database.getCitiesFromDatabase().mapToLocalModel()
 }
