@@ -9,6 +9,10 @@ import com.example.exploretheworld.utils.mappers.mapToLocalModel
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
 
+/**
+ * Repository acts as a single source of truth and it doesen't care from where data is coming he is only responsible
+ * to provide data from whichever source it sees fit.
+ */
 class DataRepository(
     private val apiDataSource: APIDataSource,
     private val database: ExploreTheWorldDAO
