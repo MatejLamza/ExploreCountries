@@ -22,6 +22,9 @@ android {
     buildTypes {
         all {
             buildConfigField 'String', 'PREFERENCES', '"com.example.exploretheworld"'
+            buildConfigField 'String', 'API_URL', '"https://private-9c4b85-geotest1.apiary-mock.com"'
+            buildConfigField 'String', 'DB_NAME', '"ExploreTheWorldDatabase"'
+
         }
         release {
             minifyEnabled false

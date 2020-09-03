@@ -7,6 +7,9 @@ import kotlinx.android.parcel.Parcelize
 
 const val CURRENT_COUNTRIES_ID = 0
 
+/**
+ * Same comment as for City.kt model
+ */
 @Parcelize
 data class Country(
     val name: String,

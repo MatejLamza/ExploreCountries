@@ -13,3 +13,11 @@ fun ListCountry.mapToList(): List<Country> {
 fun ListCities.mapToLocalModel(): List<City> {
     return this.cities
 }
+
+fun List<Country>.mapToListCountry(): ListCountry {
+    return ListCountry(this)
+}
+
+fun List<City>.mapToListCity(): ListCities {
+    return ListCities(this)
+}

@@ -16,7 +16,8 @@ class ExploreTheWorldDI(private val application: Application) {
         dataSourceModule,
         viewModelsModule,
         adapterModule,
-        repositoryModule
+        repositoryModule,
+        networkModules
     )
 
     fun initialize() {

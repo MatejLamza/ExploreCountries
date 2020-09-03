@@ -7,7 +7,11 @@ import kotlinx.android.parcel.Parcelize
 
 const val CURRENT_CITY_ID = 0
 
-
+/**
+ * In clean architecture we should separate models into 3 different layers. Domain, Database and Presentation layer.
+ * For simplicity this app only separates domain model and database model. For presenting data to user application is
+ * using Domain model.
+ */
 @Parcelize
 data class City(
     val id: Int,
@@ -19,6 +23,10 @@ data class City(
     val description: String
 ) : Parcelable
 
+/**
+ * Database model where entity is name of a table in which we are storing data and Primary key which will not be changed
+ * because we are using Room as caching mechanism.
+ */
 @Parcelize
 @Entity(tableName = "City")
 data class ListCities(

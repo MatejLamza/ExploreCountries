@@ -6,6 +6,9 @@ import retrofit2.http.GET
 
 interface APIService {
 
+    /**
+     * Simple GET call on api that takes given string "/countries" and merge it with base URL that retrofit instance has.
+     */
     @GET("/countries")
     suspend fun fetchCountries(): List<Country>
 
